@@ -1,6 +1,5 @@
 use crate::tables::{BASE4_ENCODE_8BIT_TABLE, BASE4_POWERS};
 
-
 pub(crate) struct Encoded {
     pub(crate) raw: Field,
     pub(crate) encoded: Field,
@@ -34,10 +33,10 @@ pub(crate) fn encode_base4(input: Field) -> Encoded {
     let mut base4_encoded_slices: [Field; 4] = [0; 4];
     // 18 gates?
 
-    base4_encoded_slices[0] = BASE4_ENCODE_8BIT_TABLE[s[0]];
-    base4_encoded_slices[1] = BASE4_ENCODE_8BIT_TABLE[s[1]];
-    base4_encoded_slices[2] = BASE4_ENCODE_8BIT_TABLE[s[2]];
-    base4_encoded_slices[3] = BASE4_ENCODE_8BIT_TABLE[s[3]];
+    base4_encoded_slices[0] = BASE4_ENCODE_8BIT_TABLE[s[0] as u32];
+    base4_encoded_slices[1] = BASE4_ENCODE_8BIT_TABLE[s[1] as u32];
+    base4_encoded_slices[2] = BASE4_ENCODE_8BIT_TABLE[s[2] as u32];
+    base4_encoded_slices[3] = BASE4_ENCODE_8BIT_TABLE[s[3] as u32];
 
     let mut result = base4_encoded_slices[3];
     result *= BASE4_POWERS[8];
